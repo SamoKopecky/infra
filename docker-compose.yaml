@@ -1,0 +1,14 @@
+version: "3"
+services:
+  factorio:
+    container_name: factorio
+    build:
+      context: ./factorio 
+    volumes:
+      - "${FACTORIO_MOUNT_DIR}:/factorio/mount"
+    ports:
+      - "34197:34197/udp"
+    restart: unless-stopped
+    environment:
+        SAVE_NAME: ${FACTORIO_SAVE_NAME}
+
